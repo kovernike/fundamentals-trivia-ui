@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia UI</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div class="container" id="mainContainer">
+      <div class="header">
+        <h1 class="title">Welcome to Trivia UI!</h1>
+        <p class="description">Select a category to start</p>
+      </div>
+      <div class="category__grid" id="categoriesContainer"></div>
+      <input type="hidden" name="category" id="category-input" />
+      <button id="submit-category">Go!</button>
+    </div>
+    <script src="./dom.js" type="module"></script>
+  </body>
+</html>
