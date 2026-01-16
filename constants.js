@@ -1,49 +1,49 @@
 export const API_CATEGORIES = [
   {
     id: 9,
-    title: 'General Knowledge',
-    image: '🧠',
+    title: "General Knowledge",
+    image: "🧠",
   },
   {
     id: 10,
-    title: 'Books',
-    image: '📖',
+    title: "Books",
+    image: "📖",
   },
   {
     id: 11,
-    title: 'Films',
-    image: '🍿',
+    title: "Films",
+    image: "🍿",
   },
   {
     id: 12,
-    title: 'Music',
-    image: '🎸',
+    title: "Music",
+    image: "🎸",
   },
   {
     id: 14,
-    title: 'Television',
-    image: '📺',
+    title: "Television",
+    image: "📺",
   },
   {
     id: 15,
-    title: 'Video Games',
-    image: '🎮',
+    title: "Video Games",
+    image: "🎮",
   },
   {
     id: 21,
-    title: 'Sports',
-    image: '⚽',
+    title: "Sports",
+    image: "⚽",
   },
   {
     id: 22,
-    title: 'Geography',
-    image: '⛰️',
+    title: "Geography",
+    image: "⛰️",
   },
   {
     id: 23,
-    title: 'History',
-    image: '🏰',
+    title: "History",
+    image: "🏰",
   },
 ];
 
-export const BASE_URL = 'https://opentdb.com/api.php?amount=5&type=multiple';
+export const BASE_URL = "https://opentdb.com/api.php?amount=5&type=multiple";
