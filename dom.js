@@ -1,6 +1,14 @@
 import { API_CATEGORIES } from "./constants.js";
+import {
+  setTrivalQuestions,
+  questions,
+  setCategory,
+  category,
+} from "./data.js";
 
 const categoryInput = document.getElementById("category-input");
+const sumitCategoryButton = document.getElementById("submit-category");
+
 export function showCategoriesView() {
   const categoriesGrid = document.getElementById("categoriesContainer");
 
@@ -29,5 +37,16 @@ export function showCategoriesView() {
     categoriesGrid.append(categoryContainer);
   });
 }
+
+sumitCategoryButton.onclick = async () => {
+  const categoryId = categoryInput.value;
+  if (!categoryId) return;
+
+  await setTrivalQuestions(categoryId);
+
+  setCategory(categoryId);
+
+  console.log(questions, category);
+};
 
 showCategoriesView();

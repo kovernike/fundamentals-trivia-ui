@@ -1,7 +1,8 @@
 import { BASE_URL } from "./constants.js";
+import { API_CATEGORIES } from "./constants.js";
 
-let category;
-const questions = [];
+export let category;
+export let questions = [];
 
 export async function getTriviaQuestions(categoryId) {
   const endpoint = `${BASE_URL}&category=${categoryId}`;
@@ -16,5 +17,12 @@ export async function getTriviaQuestions(categoryId) {
 export async function setTrivalQuestions(categoryId) {
   const results = await getTriviaQuestions(categoryId);
 
-  questions.push(...results);
+  questions = results;
+}
+
+export function setCategory(categoryId) {
+  const selecCategorry = API_CATEGORIES.find(
+    (category) => category.id.toString() === categoryId,
+  );
+  category = selecCategorry;
 }
