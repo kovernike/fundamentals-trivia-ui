@@ -3,6 +3,7 @@ import { API_CATEGORIES } from "./constants.js";
 
 export let category;
 export let questions = [];
+export let currentQuestionIndex = 0;
 
 export async function getTriviaQuestions(categoryId) {
   const endpoint = `${BASE_URL}&category=${categoryId}`;
