@@ -64,28 +64,34 @@ export function showQuestionView(questionIndex) {
       <p class="question">
         ${question}
       </p>
-      <form id="form-0">
-        <fieldset>
-          <label class="radio-field">
-            <input type="radio" name="name" />
-            Option 1
-          </label>
-          <label class="radio-field">
-            <input type="radio" name="name" />
-            Option 2
-          </label>
-          <label class="radio-field">
-            <input type="radio" name="name" />
-            Option 3
-          </label>
-          <label class="radio-field">
-            <input type="radio" name="name" />
-            Option 4
-          </label>
-        </fieldset>
-        <button>Submit</button>
+      <form id="form-${questionIndex}">
+        <fieldset id="options"></fieldset>
+        <button type="submit">Submit</button>
       </form>
   `;
+  const fieldset = document.getElementById("options");
+
+  Options.forEach((option) => {
+    const label = document.createElement("label");
+    label.className = "radio-field";
+
+    label.innerHTML = `
+    <input type="radio" name="question-${questionIndex}" value="${option}" />
+    ${option}
+    `;
+
+    fieldset.append(label);
+  });
+
+  const form = document.getElementById(`form-${questionIndex}`);
+
+  form.onsubmit = (e) => {
+    e.preventDefault();
+
+    const value = e.target[`question-${questionIndex}`].value;
+
+    console.log(value);
+  };
 }
 
 showCategoriesView();
