@@ -27,3 +27,7 @@ export function setCategory(categoryId) {
   );
   category = selecCategorry;
 }
+
+export function nextQuestion() {
+  currentQuestionIndex++;
+}

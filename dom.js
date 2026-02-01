@@ -4,6 +4,8 @@ import {
   questions,
   setCategory,
   category,
+  currentQuestionIndex,
+  nextQuestion,
 } from "./data.js";
 
 const categoryInput = document.getElementById("category-input");
@@ -56,8 +58,6 @@ export function showQuestionView(questionIndex) {
 
   const Options = [correct_answer, ...incorrect_answers].sort();
 
-  console.log(Options);
-
   mainContainer.innerHTML = `
   <h1 class="title">${category.title} #${questionIndex + 1}</h1>
       <span class="category-icon">${category.image}</span>
@@ -90,7 +90,13 @@ export function showQuestionView(questionIndex) {
 
     const value = e.target[`question-${questionIndex}`].value;
 
-    console.log(value);
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+
+    if (!isLastQuestion) {
+      nextQuestion();
+
+      showQuestionView(currentQuestionIndex);
+    }
   };
 }
 
