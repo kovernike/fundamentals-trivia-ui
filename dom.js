@@ -1,4 +1,5 @@
 import { API_CATEGORIES } from "./constants.js";
+import { decodeHtmlEntities, encodeHtmlEntities } from "./utils.js";
 import {
   setTrivalQuestions,
   questions,
@@ -6,6 +7,8 @@ import {
   category,
   currentQuestionIndex,
   nextQuestion,
+  validateAnswer,
+  score,
 } from "./data.js";
 
 const categoryInput = document.getElementById("category-input");
@@ -62,7 +65,7 @@ export function showQuestionView(questionIndex) {
   <h1 class="title">${category.title} #${questionIndex + 1}</h1>
       <span class="category-icon">${category.image}</span>
       <p class="question">
-        ${question}
+        ${decodeHtmlEntities(question)}
       </p>
       <form id="form-${questionIndex}">
         <fieldset id="options"></fieldset>
@@ -72,12 +75,14 @@ export function showQuestionView(questionIndex) {
   const fieldset = document.getElementById("options");
 
   Options.forEach((option) => {
+    const decodedOption = decodeHtmlEntities(option);
+
     const label = document.createElement("label");
     label.className = "radio-field";
 
     label.innerHTML = `
-    <input type="radio" name="question-${questionIndex}" value="${option}" />
-    ${option}
+    <input type="radio" name="question-${questionIndex}" value="${decodedOption}" />
+    ${decodedOption}
     `;
 
     fieldset.append(label);
@@ -88,15 +93,20 @@ export function showQuestionView(questionIndex) {
   form.onsubmit = (e) => {
     e.preventDefault();
 
-    const value = e.target[`question-${questionIndex}`].value;
+    const aswer = e.target[`question-${questionIndex}`].value;
+
+    validateAnswer(encodeHtmlEntities(aswer));
 
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
-    if (!isLastQuestion) {
-      nextQuestion();
+    if (isLastQuestion) {
+      console.log(score);
 
-      showQuestionView(currentQuestionIndex);
+      return;
     }
+    nextQuestion();
+
+    showQuestionView(currentQuestionIndex);
   };
 }
 
