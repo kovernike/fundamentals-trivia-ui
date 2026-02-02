@@ -94,6 +94,7 @@ export function showQuestionView(questionIndex) {
     e.preventDefault();
 
     const aswer = e.target[`question-${questionIndex}`].value;
+    if (!aswer) return;
 
     validateAnswer(encodeHtmlEntities(aswer));
 
