@@ -42,17 +42,29 @@ The app allows users to select a trivia category, fetch questions from an extern
 ├── utils.js
 ├── styles/
 └── references/
-How To Run
-Clone the repository:
+```
+
+## How To Run
+
+1. Clone the repository:
+
+```bash
 git clone https://github.com/kovernike/fundamentals-trivia-ui.git
-Open the project folder:
+```
+
+2. Open the project folder:
+
+```bash
 cd fundamentals-trivia-ui
-Run the project with a local server, for example using VS Code Live Server.
+```
 
-Open index.html in the browser.
+3. Run the project with a local server, for example using VS Code Live Server.
 
-Author
+4. Open `index.html` in the browser.
+
+## Author
+
 Diego Dennis Villanueva
 
-GitHub: @kovernike
-LinkedIn: Diego Dennis Villanueva
+- GitHub: [@kovernike](https://github.com/kovernike)
+- LinkedIn: [Diego Dennis Villanueva](https://www.linkedin.com/in/diego-dennis-villanueva-a2a2a9318)
